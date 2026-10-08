@@ -1,0 +1,54 @@
+---
+import Menu from '../components/Menu.svelte';
+import Layout from '../layouts/Layout.astro';
+const projects = [
+    {
+        title: "Dayelis",
+        summary: "Personal Discord Bot for my group's TTRPG activities",
+        purpose: "To learn the process of making a Discord bot, and for personal use",
+        stack: ["Python", "discord.py"],
+        status: "Live",
+        github: "https://github.com/ThatOneSongbird/Dayelis",
+        site: null,
+        icon: "images/dayelis.png",
+    },
+    {
+        title: "Portfolio V1",
+        summary: "My first try at a Portfolio using Python and Flask",
+        purpose: "To teach the basics of webdev and to have a place to showoff my projects",
+        stack: ["Python", "Flask", "Jinja2"],
+        status: "Depreceated",
+        github: "https://github.com/ThatOneSongbird/Portfolio-Website",
+        site: null,
+        icon: null,
+    },
+    {
+        title: "Portfolio V2",
+        summary: "My second attempt at a Portfolio, this time with Javascript and supporting frameworks.",
+        purpose: "To make a nice, aesthetic, and impressive portofolio to showcase my creativity and abilities.",
+        stack: ["Javascript", "Astro.js", "Svelte.js", "three.js"],
+        status: "Live",
+        github: "https://github.com/ThatOneSongbird/Portfolio-V2",
+        site: "https://thatoneportfolio.dev",
+        icon: null,
+    }
+];
+---
+
+<Layout title="Projects">
+    <main>
+        <h1>Projects</h1>
+
+        {projects.map((project) => (
+            <article>
+                <h2>
+                    {project.site
+                    ? <a href={project.site}>{project.title}</a>
+                    : project.title}
+                </h2>
+                <p>{project.summary}</p>
+                {project.github && <a href={project.github}>GitHub</a>}
+            </article>
+        ))}
+    </main>
+</Layout>

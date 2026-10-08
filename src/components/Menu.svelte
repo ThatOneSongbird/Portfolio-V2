@@ -16,7 +16,7 @@
 </script>
 
 <!-- Button Section -->
-<button class = "menu-button" onclick={openMenu} aria-label="Open menu">
+<button class="menu-button" onclick={openMenu} aria-label="Open menu">
   <span></span>
   <span></span>
 </button>
@@ -34,7 +34,7 @@
     </details>
     <a href="/dossier">Dossier</a>
   </nav>
-  <button class ="close-button" onclick={closeMenu}>Close</button>
+  <button class="close-button" onclick={closeMenu}>Close</button>
 </dialog>
 
 <!-- Style Section-->
