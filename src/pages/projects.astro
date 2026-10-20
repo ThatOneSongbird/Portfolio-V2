@@ -6,16 +6,16 @@ const projects = [
         summary: "Personal Discord Bot for my group's TTRPG activities hosted on my Raspberry Pi",
         purpose: "To learn the process of making a Discord bot, while developing useful features for a TTRPG group like pulling information from Archives of Nethys.",
         stack: ["Python", "discord.py", "Raspberry Pi", "JSON"],
-        status: "Live",
+        status: "Live, maintained",
         github: "https://github.com/ThatOneSongbird/Dayelis",
         site: null,
-        icon: "images/dayelis.png",
+        icon: "/images/dayelis.png",
     },
     {
         title: "Portfolio V1",
-        summary: "My first attempt at a Portfolio using Python and Flask, hosted on the Pi through a Cloudflare Tunnel",
-        purpose: "To teach the basics of webdev and to have a place to showoff my projects",
-        stack: ["Python", "Flask", "Jinja2", "HTML/CSS"],
+        summary: "My first Portfolio using Python and Flask, hosted on the Pi through a Cloudflare Tunnel",
+        purpose: "To learn the basics of webdev and to have a place to show off my projects",
+        stack: ["Python", "Flask", "Jinja2", "HTML/CSS", "Bootstrap", "Raspberry Pi", "Cloudflare Tunnel"],
         status: "Archived",
         github: "https://github.com/ThatOneSongbird/Portfolio-Website",
         site: null,
@@ -23,12 +23,22 @@ const projects = [
     },
     {
         title: "Portfolio V2",
-        summary: "My second attempt at a Portfolio, this time with Javascript and supporting frameworks, hosted on the Pi through a Cloudflare Tunnel.",
-        purpose: "To make a nice, aesthetic, and impressive portofolio to showcase my creativity and abilities.",
-        stack: ["JavaScript", "Astro", "Svelte", "Three.js"],
-        status: "Live",
+        summary: "My second Portfolio, this time with JavaScript and supporting frameworks, hosted on the Pi through a Cloudflare Tunnel.",
+        purpose: "A cleaner way to showcase myself, my capabilities, and my projects, using modern frontend frameworks.",
+        stack: ["JavaScript", "Astro", "Svelte", "Three.js", "Raspberry Pi", "Cloudflare Tunnel"],
+        status: "Live, maintained",
         github: "https://github.com/ThatOneSongbird/Portfolio-V2",
         site: "https://thatoneportfolio.dev",
+        icon: null,
+    },
+    {
+        title: "Dossier",
+        summary: "A blogging website for tech posts, general TTRPG posts, and in-character posts from my homebrew world.",
+        purpose: "I enjoy writing about my interests, and I wanted to build a home for it.",
+        stack: ["JavaScript", "Astro", "Svelte"],
+        status: "Planned",
+        github: null,
+        site: null,
         icon: null,
     }
 ];
@@ -40,12 +50,25 @@ const projects = [
 
         {projects.map((project) => (
             <article>
+                {project.icon && <img src={project.icon} alt="" />}
                 <h2>
                     {project.site
                     ? <a href={project.site}>{project.title}</a>
                     : project.title}
                 </h2>
                 <p>{project.summary}</p>
+                    <dl>
+                    <dt>Purpose</dt>
+                    <dd>{project.purpose}</dd>
+                    <dt>Stack</dt>
+                    <dd>
+                        <ul>
+                        {project.stack.map((tech) => <li>{tech}</li>)}
+                        </ul>
+                    </dd>
+                    <dt>Status</dt>
+                    <dd>{project.status}</dd>
+                    </dl>
                 {project.github && <a href={project.github}>GitHub</a>}
             </article>
         ))}
