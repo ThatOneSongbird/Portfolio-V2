@@ -1,10 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { menuLinks, socialLinks } from '../data/links.js';
 ---
 
-<Layout title="ThatOnePortfolio">
-  <main>
-    <h1>Ian Johnson</h1>
-    <p>Software Developer</p>
-  </main>
+<Layout>
+  <div class="title-screen">
+    <div class="d20" aria-hidden="true"></div>
+
+    <header class="main-menu">
+      <h1>Ian Johnson</h1>
+      <p>Software Developer</p>
+      <nav>
+        <ul>
+          {menuLinks
+            .filter((link) => link.href !== "/")
+            .map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+        </ul>
+      </nav>
+    </header>
+  </div>
 </Layout>
+
+<style>
+  .d20,
+  .main-menu {
+    grid-area: 1 / 1;
+  }
+  .main-menu {
+    background: rgb(34 4 58 / 0.6);
+    backdrop-filter: blur(8px);
+}
+</style>
+

@@ -3,6 +3,7 @@ import '@fontsource/caudex';
 import '@fontsource/caudex/700.css';
 import Menu from '../components/Menu.svelte';
 const { title = "ThatOnePortfolio" } = Astro.props;
+const isHome = Astro.url.pathname === "/";
 ---
 <!doctype html>
 <html lang="en">
@@ -15,12 +16,20 @@ const { title = "ThatOnePortfolio" } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Menu client:load />
+		<!isHome && Menu client:load />
 		<slot />
 	</body>
 </html>
 
 <style is:global>
+  :root {
+    --color-background: #22043a;
+    --color-surface: #480d50;
+    --color-line: #7b357f;
+    --color-accent: #c574b1;
+    --color-text: #f4d6e2;
+  }
+
   html,
   body {
     margin: 0;
@@ -30,6 +39,8 @@ const { title = "ThatOnePortfolio" } = Astro.props;
 
   body {
     font-family: 'Caudex', serif;
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   button {

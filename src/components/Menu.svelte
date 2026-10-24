@@ -24,6 +24,7 @@
 <!-- Dialog Section -->
 <dialog bind:this={menuOverlay} onclick={handleBackdropClick}>
   <nav>
+    <a href="/">Main Menu</a>
     <a href="/about">About Me</a>
     <a href="/projects">Projects</a>
     <details>
@@ -40,7 +41,14 @@
 <!-- Style Section-->
  <style>
     dialog {
-      text-align: center;
+        text-align: center;
+        background: #f4d6e2;
+        border: 3px solid var(--color-line);
+        border-radius: 0.75rem;
+        
+    }
+    dialog::backdrop {
+      background: rgb(0 0 0 / 0.7);
     }
     nav {
         display: flex;
