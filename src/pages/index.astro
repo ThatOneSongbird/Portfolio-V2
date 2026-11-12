@@ -20,6 +20,16 @@ import { menuLinks, socialLinks } from '../data/links.js';
         </ul>
       </nav>
     </header>
+
+    <ul class="social-links">
+      {socialLinks.map((link) => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </Layout>
 
